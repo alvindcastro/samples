@@ -1,38 +1,23 @@
 package com.adc.dataspark;
 
-import junit.framework.Test;
-import junit.framework.TestCase;
-import junit.framework.TestSuite;
+import static com.adc.dataspark.util.FileUtil.getDataFromFile;
+import static java.util.Comparator.naturalOrder;
+import static org.assertj.core.api.Assertions.assertThat;
+
+import org.junit.Test;
 
 /**
- * Unit test for simple App.
+ * Unit test for App.
  */
-public class AppTest 
-    extends TestCase
-{
-    /**
-     * Create the test case
-     *
-     * @param testName name of the test case
-     */
-    public AppTest( String testName )
-    {
-        super( testName );
-    }
+public class AppTest {
 
-    /**
-     * @return the suite of tests being tested
-     */
-    public static Test suite()
-    {
-        return new TestSuite( AppTest.class );
-    }
-
-    /**
-     * Rigourous Test :-)
-     */
-    public void testApp()
-    {
-        assertTrue( true );
-    }
+	@Test
+	public void should_read_file() throws Exception {
+		App app = new App();
+		String filePath = "target/data.txt";
+		String destinationPath = "target/result.txt";
+		app.sortData(filePath, destinationPath);
+		
+		assertThat(getDataFromFile(destinationPath)).isSortedAccordingTo(naturalOrder());
+	}
 }
