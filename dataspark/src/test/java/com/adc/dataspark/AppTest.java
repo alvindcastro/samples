@@ -12,12 +12,22 @@ import org.junit.Test;
 public class AppTest {
 
 	@Test
-	public void should_read_file() throws Exception {
+	public void should_read_file_then_sort_by_API() throws Exception {
 		App app = new App();
 		String filePath = "target/data.txt";
-		String destinationPath = "target/result.txt";
-		app.sortData(filePath, destinationPath);
-		
+		String destinationPath = "target/api_result.txt";
+		app.sortDataByAPI(filePath, destinationPath);
+
+		assertThat(getDataFromFile(destinationPath)).isSortedAccordingTo(naturalOrder());
+	}
+
+	@Test
+	public void should_read_file_then_sort_by_merge() throws Exception {
+		App app = new App();
+		String filePath = "target/data.txt";
+		String destinationPath = "target/merge_result.txt";
+		app.sortDataByMerge(filePath, destinationPath);
+
 		assertThat(getDataFromFile(destinationPath)).isSortedAccordingTo(naturalOrder());
 	}
 }
