@@ -6,6 +6,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class MergeSortUtil {
+
 	public <T> List<T> mergeSort(List<T> data) {
 		if (data.size() <= 1) {
 			return data;

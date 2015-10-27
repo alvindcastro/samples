@@ -2,6 +2,7 @@ package com.adc.dataspark;
 
 import static com.adc.dataspark.util.FileUtil.getDataFromFile;
 import static com.google.common.base.Stopwatch.createStarted;
+import static java.nio.file.Paths.get;
 import static java.util.logging.Logger.getLogger;
 
 import java.io.File;
@@ -32,21 +33,25 @@ public class App {
 		}
 
 		stopwatch.stop();
-		logger.info("Time took to process file: [" + stopwatch.elapsed(TimeUnit.MILLISECONDS) + "] ms");
+		logger.info("Time took to process file with Collections API: [" + stopwatch.elapsed(TimeUnit.MILLISECONDS)
+				+ "] ms");
 	}
 
 	public void sortDataByMerge(String filePath, String destinationPath) throws Exception {
 		Stopwatch stopwatch = createStarted();
-		BufferedFileUtil<Integer> bufferedFile = new BufferedFileUtil<Integer>("UTF-8");
-		List<Integer> data = new ArrayList<Integer>();
-		File openFile = (Paths.get(filePath)).toFile();
-		data = bufferedFile.readFile(openFile.toPath(), data);
 		MergeSortUtil sortUtil = new MergeSortUtil();
+		List<Integer> data = new ArrayList<Integer>();
+		BufferedFileUtil<Integer> bufferedFile = new BufferedFileUtil<Integer>("UTF-8");
+
+		data = bufferedFile.readFile((get(filePath)).toFile().toPath(), data);
+
 		try (PrintWriter pw = new PrintWriter(new FileOutputStream(destinationPath))) {
-			sortUtil.mergeSort(data).forEach(integer -> pw.println(integer));
+			sortUtil.mergeSort(data) //
+					.forEach(integer -> pw.println(integer));
 		}
+
 		stopwatch.stop();
-		logger.info("Time took to process file: [" + stopwatch.elapsed(TimeUnit.MILLISECONDS) + "] ms");
+		logger.info("Time took to process file with merge sort: [" + stopwatch.elapsed(TimeUnit.MILLISECONDS) + "] ms");
 	}
 
 }
