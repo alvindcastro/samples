@@ -1,0 +1,10 @@
+Manifest-Version: 1.0
+Implementation-Title: developer-test-candidate
+Implementation-Version: 0.0.1-SNAPSHOT
+Built-By: alvindecastro
+Implementation-Vendor-Id: com.trimplement
+Build-Jdk: 1.8.0_45
+Created-By: Maven Integration for Eclipse
+Implementation-Vendor: Pivotal Software, Inc.
+Main-Class: developer-test.DeveloperTestApplication
+
