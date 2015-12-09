@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="EclipseCodeFormatter">
+    <option name="defaultSettings" value="true" />
+    <option name="formatter" value="ECLIPSE" />
+    <option name="id" value="1447651747565" />
+    <option name="name" value="default" />
+    <option name="pathToConfigFileJava" value="$USER_HOME$/dev/GlobalSources/messagecenter/globalsources.messagecenter.codeformatter.java.eclipse.xml" />
+    <option name="selectedJavaProfile" value="globalsources.messagecenter.formatter" />
+    <option name="useOldEclipseJavaFormatter" value="true" />
+  </component>
+  <component name="ProjectRootManager" version="2" languageLevel="JDK_1_6" assert-keyword="true" jdk-15="true" />
+</project>
