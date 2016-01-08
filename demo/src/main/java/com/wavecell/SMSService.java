@@ -1,7 +1,5 @@
 package com.wavecell;
 
 public interface SMSService {
-	
-	void sendSMS();
-
+	public String sendSMS(String source, String destination, String messageBody, String date, String time);
 }

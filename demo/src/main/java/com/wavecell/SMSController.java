@@ -20,10 +20,11 @@ public class SMSController {
 	}
 	
 	@RequestMapping(value = "/sendSMS", method = RequestMethod.POST)
-	public String sendSMS(@RequestParam Long paymentInstrumentId, RedirectAttributes redirectAttributes) {
-		smsService.sendSMS();
+	public String sendSMS(@RequestParam String source, @RequestParam String destination, @RequestParam String messageBody,
+			@RequestParam String messageDate,@RequestParam String messageTime, RedirectAttributes redirectAttributes) {
+		String response = smsService.sendSMS(source, destination, messageBody, messageDate, messageTime);
 		redirectAttributes.addFlashAttribute("message",
-				String.format("Payment instrument %s locked.", paymentInstrumentId));
+				String.format("Response is: ", response));
 		return "redirect:/";
 	}
 

@@ -32,7 +32,7 @@
 							<form th:action="@{/sendSMS}" method="post">
 								<div class="form-group">
 									<label for="source">Source</label>
-									<input type="text" name="source" class="form-control" placeholder="Account Holder" />
+									<input type="text" name="source" class="form-control" />
 								</div>
 								<div class="form-group">
 									<label for="destination">Destination</label>
@@ -43,18 +43,12 @@
 									<input type="text" name="messageBody" class="form-control" />
 								</div>
 								<div class="form-group">
-									<label for="messageDateTime">Date (MM/DD/YYYY)</label>
-									<div class="row">
-										<div class="col-xs-6">
-											<input type="text" name="msgDate" class="form-control" />
-										</div>
-									</div>
-									<label for="messageDateTime">Time</label>
-									<div class="row">
-										<div class="col-xs-6">
-											<input type="text" name="msgTime" class="form-control" />
-										</div>
-									</div>
+									<label for="messageDate">Date (MM/DD/YYYY)</label>
+									<input type="text" name="messageDate" class="form-control" />
+								</div>
+								<div class="form-group">
+									<label for="messageTime">Time</label>
+									<input type="text" name="messageTime" class="form-control" />
 								</div>
 								<button type="submit" class="btn btn-default">Submit</button>
 							</form>
